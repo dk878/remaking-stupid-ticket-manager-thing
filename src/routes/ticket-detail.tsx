@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from '@tanstack/react-router'
 import { ChevronLeft, ChevronRight, RefreshCw } from 'lucide-react'
 import type { Ticket } from '@/components/tickets/ticket-card'
+import { apiUrl } from '@/lib/api'
 
 const barcodeImageUrl = 'https://cdn.discordapp.com/attachments/1108078293900599358/1433266913814778027/sUhSGAAAABklEQVQDANS0T8Yh3dcAAAAAElFTkSuQmCC.png?ex=6a1edb15&is=6a1d8995&hm=98ac2b158f00910c892e0809526fd786631f93c78025bd5c251c8c393ddb4b3e&animated=true'
 
@@ -38,7 +39,7 @@ export function TicketDetailPage() {
   useEffect(() => {
     async function loadTicket() {
       try {
-        const response = await fetch(`/api/tickets/${ticketId}`)
+        const response = await fetch(apiUrl(`/api/tickets/${ticketId}`))
         if (!response.ok) throw new Error('Could not load ticket')
         setTicket(await response.json())
       } catch (_error) {

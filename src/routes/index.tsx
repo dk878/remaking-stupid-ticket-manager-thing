@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { CreateTicketDialog } from '@/components/tickets/create-ticket-dialog'
 import { TicketCard, type Ticket } from '@/components/tickets/ticket-card'
-
+import { apiUrl } from '@/lib/api'
 
 export function HomePage() {
   const [tickets, setTickets] = useState<Ticket[]>([])
@@ -16,7 +16,7 @@ export function HomePage() {
   useEffect(() => {
     async function loadTickets() {
       try {
-        const response = await fetch('/api/tickets')
+        const response = await fetch(apiUrl('/api/tickets'))
         if (!response.ok) throw new Error('Could not load tickets')
         const data = await response.json()
         setTickets(data)
@@ -62,7 +62,7 @@ export function HomePage() {
 
   async function createTicket(ticket: Omit<Ticket, 'id'>) {
     setError('')
-    const response = await fetch('/api/tickets', {
+    const response = await fetch(apiUrl('/api/tickets'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(ticket),
@@ -81,7 +81,7 @@ export function HomePage() {
 
   async function updateTicket(id: number, ticket: Omit<Ticket, 'id'>) {
     setError('')
-    const response = await fetch(`/api/tickets/${id}`, {
+    const response = await fetch(apiUrl(`/api/tickets/${id}`), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(ticket),
@@ -100,7 +100,7 @@ export function HomePage() {
 
   async function deleteTicket(id: number) {
     setError('')
-    const response = await fetch(`/api/tickets/${id}`, { method: 'DELETE' })
+    const response = await fetch(apiUrl(`/api/tickets/${id}`), { method: 'DELETE' })
 
     if (!response.ok) {
       setError('Ticket could not be deleted from the database.')
