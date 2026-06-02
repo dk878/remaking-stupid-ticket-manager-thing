@@ -118,16 +118,16 @@ const canAct = tickets.length > 0
       <header className="bg-[#cb0101] text-white">
         <div className="mx-auto flex min-h-[106px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[106px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
-            <button aria-label="Close" className="relative h-11 w-11 translate-y-[30px]">
-              <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
-              <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
+            <button aria-label="Close" className="relative h-11 w-11" style={{ transform: 'translate(-15px, 30px)' }}>
+              <span className="absolute left-1/2 top-1/2 h-[3px] w-[25px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
+              <span className="absolute left-1/2 top-1/2 h-[3px] w-[25px] -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
-            <h1 className="whitespace-nowrap text-center font-normal mt-[40px] translate-y-5" style={{ fontFamily: 'Arial, sans-serif', fontSize: '21px' }}>My Tickets</h1>
+            <h1 className="whitespace-nowrap text-center font-normal mt-[40px] translate-y-[15px]" style={{ fontFamily: 'Arial, sans-serif', fontSize: '19px' }}>My Tickets</h1>
             <div />
           </div>
           <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
-            <button className="pb-[21px] pt-8 font-extrabold sm:pb-[29px] sm:pt-14">MY TICKETS</button>
-            <button className="pb-[21px] pt-8 text-white/55 sm:pb-[29px] sm:pt-14">EXTRAS</button>
+            <button className="pb-[21px] pt-8 font-extrabold sm:pb-[29px] sm:pt-14" style={{ fontSize: '12.5px', transform: 'translate(-13.5px, 7px)' }}>MY TICKETS</button>
+            <button className="pb-[21px] pt-8 text-white/55 sm:pb-[29px] sm:pt-14" style={{ fontSize: '12.5px', transform: 'translate(16.5px, 10px)' }}>EXTRAS</button>
           </nav>
         </div>
       </header>
@@ -171,11 +171,11 @@ const canAct = tickets.length > 0
           ))}
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-4 px-6 sm:mt-8 sm:gap-5 sm:px-8">
-          <Button disabled={!canAct} className="h-12 rounded-md bg-slate-200 text-base font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100 sm:h-14 sm:text-lg">
+        <div className="mt-5 grid grid-cols-2 gap-4 px-6 sm:mt-8 sm:gap-5 sm:px-8 -translate-y-[8px]">
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px' }}>
             Transfer
           </Button>
-          <Button disabled={!canAct} className="h-12 rounded-md bg-slate-200 text-base font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100 sm:h-14 sm:text-lg">
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px' }}>
             Sell
           </Button>
         </div>
