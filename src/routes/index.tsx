@@ -117,18 +117,18 @@ export function HomePage() {
   return (
     <main className="min-h-svh bg-white text-zinc-950">
       <header className="bg-[#c3211d] text-white">
-        <div className="mx-auto flex min-h-[212px] max-w-[520px] flex-col px-6 pb-0 pt-8">
-          <div className="mt-12 grid grid-cols-3 items-center">
+        <div className="mx-auto flex min-h-[160px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[212px] sm:pt-8">
+          <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
             <button aria-label="Close" className="relative h-11 w-11">
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
-            <h1 className="whitespace-nowrap text-center text-3xl font-bold">My Tickets</h1>
+            <h1 className="whitespace-nowrap text-center text-2xl font-bold sm:text-3xl">My Tickets</h1>
             <div />
           </div>
-          <nav className="mt-auto grid grid-cols-2 text-center text-lg uppercase tracking-wide">
-            <button className="pb-6 pt-14 font-extrabold">My Tickets</button>
-            <button className="pb-6 pt-14 text-white/55">Extras</button>
+          <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
+            <button className="pb-4 pt-8 font-extrabold sm:pb-6 sm:pt-14">My Tickets</button>
+            <button className="pb-4 pt-8 text-white/55 sm:pb-6 sm:pt-14">Extras</button>
           </nav>
         </div>
       </header>
@@ -168,16 +168,16 @@ export function HomePage() {
           ))}
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-5 px-8">
-          <Button disabled={!canAct} className="h-14 rounded-md bg-slate-200 text-lg font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100">
+        <div className="mt-5 grid grid-cols-2 gap-4 px-6 sm:mt-8 sm:gap-5 sm:px-8">
+          <Button disabled={!canAct} className="h-12 rounded-md bg-slate-200 text-base font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100 sm:h-14 sm:text-lg">
             Transfer
           </Button>
-          <Button disabled={!canAct} className="h-14 rounded-md bg-slate-200 text-lg font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100">
+          <Button disabled={!canAct} className="h-12 rounded-md bg-slate-200 text-base font-bold text-slate-400 hover:bg-slate-200 disabled:opacity-100 sm:h-14 sm:text-lg">
             Sell
           </Button>
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-3 px-8 pb-12">
+        <div className="mt-5 flex flex-col items-center gap-3 px-6 pb-10 sm:mt-8 sm:px-8 sm:pb-12">
           <CreateTicketDialog onCreate={createTicket} />
           {error && <p className="text-center text-sm font-medium text-[#c3211d]">{error}</p>}
           {activeTicket && <p className="text-center text-sm text-zinc-500">Selected: {activeTicket.section}, Row {activeTicket.row}, Seat {activeTicket.seat}</p>}

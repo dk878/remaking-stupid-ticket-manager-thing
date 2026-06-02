@@ -59,7 +59,7 @@ export function EditTicketDialog({ ticket, onUpdate, onDelete }: EditTicketDialo
       <DialogTrigger asChild>
         <button
           type="button"
-          className="absolute right-0 top-[-6px] grid h-9 w-9 place-items-center rounded-full border-2 border-solid !border-white bg-transparent text-2xl font-normal leading-none !text-white shadow-none hover:bg-white/10"
+          className="absolute right-3 top-3 z-10 grid h-6 w-6 place-items-center rounded-full border-2 border-solid !border-white bg-transparent text-sm font-normal leading-none !text-white shadow-none hover:bg-white/10"
           aria-label="Edit ticket information"
           onClick={stopCardClick}
         >

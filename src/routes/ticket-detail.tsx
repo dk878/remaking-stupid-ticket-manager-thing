@@ -8,11 +8,11 @@ const barcodeImageUrl = 'https://cdn.discordapp.com/attachments/1108078293900599
 
 function BarcodePanel() {
   return (
-    <section className="mx-auto mt-24 w-[75vw] max-w-[390px] rounded-2xl bg-white p-3 text-zinc-950 shadow-2xl">
-      <div className="h-28 overflow-hidden">
+    <section className="mx-auto mt-6 w-[75vw] max-w-[390px] rounded-2xl bg-white p-3 text-zinc-950 shadow-2xl">
+      <div className="h-[88px] overflow-hidden">
         <img src={barcodeImageUrl} alt="Ticket barcode" className="h-full w-full object-fill" />
       </div>
-      <div className="mt-5 flex items-center justify-between gap-3 px-5 pb-2 text-lg font-bold sm:text-xl">
+      <div className="mt-3 flex items-center justify-between gap-3 px-5 pb-1 text-base font-bold sm:text-lg">
         <span className="whitespace-nowrap">Screenshots won't get you in.</span>
         <RefreshCw className="h-7 w-7 shrink-0" />
       </div>
@@ -70,39 +70,39 @@ export function TicketDetailPage() {
       <header className="relative z-10 bg-[#202932] px-6 pb-7 pt-8">
         <div className="mx-auto max-w-[520px]">
           <div className="grid grid-cols-[64px_1fr] items-end gap-4 pt-16">
-            <Link to="/" aria-label="Back to tickets" className="relative h-12 w-12">
-              <span className="absolute left-1/2 top-1/2 h-[3px] w-12 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
-              <span className="absolute left-1/2 top-1/2 h-[3px] w-12 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
+            <Link to="/" aria-label="Back to tickets" className="relative h-8 w-8">
+              <span className="absolute left-1/2 top-1/2 h-[2px] w-8 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
+              <span className="absolute left-1/2 top-1/2 h-[2px] w-8 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </Link>
             <div className="min-w-0">
-              <h1 className="truncate text-2xl font-bold leading-tight">{ticket.event}</h1>
-              <p className="truncate text-xl text-white/90">{ticket.date} - {ticket.venue}</p>
+              <h1 className="truncate text-lg font-normal leading-tight">{ticket.event}</h1>
+              <p className="truncate text-base text-white/90">{ticket.date} - {ticket.venue}</p>
             </div>
           </div>
         </div>
       </header>
 
-      <section className="relative min-h-[calc(100svh-148px)] px-6 pb-28 pt-24 text-center">
+      <section className="relative min-h-[calc(100svh-148px)] px-6 pb-28 pt-[42px] text-center">
         {ticket.imageUrl ? (
-          <img src={ticket.imageUrl} alt="Ticket background" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={ticket.imageUrl} alt="Ticket background" className="absolute inset-0 h-full w-full scale-[2.31] object-cover" />
         ) : (
           <FallbackBackground />
         )}
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 mx-auto max-w-[520px]">
-          <h2 className="text-3xl font-bold">{ticket.type}</h2>
-          <div className="mt-16 grid grid-cols-3 gap-6">
+          <h2 className="mt-[21px] text-xl font-normal">{ticket.type}</h2>
+          <div className="mt-[43px] mx-auto grid w-fit grid-cols-3 gap-10">
             <div>
-              <p className="text-2xl font-light">Section</p>
-              <p className="mt-2 text-4xl font-bold">{ticket.section}</p>
+              <p className="text-base font-light">Section</p>
+              <p className="mt-2 text-[26px] font-medium">{ticket.section}</p>
             </div>
             <div>
-              <p className="text-2xl font-light">Row</p>
-              <p className="mt-2 text-4xl font-bold">{ticket.row}</p>
+              <p className="text-base font-light">Row</p>
+              <p className="mt-2 text-[26px] font-medium">{ticket.row}</p>
             </div>
             <div>
-              <p className="text-2xl font-light">Seat</p>
-              <p className="mt-2 text-4xl font-bold">{ticket.seat}</p>
+              <p className="text-base font-light">Seat</p>
+              <p className="mt-2 text-[26px] font-medium">{ticket.seat}</p>
             </div>
           </div>
           <BarcodePanel />

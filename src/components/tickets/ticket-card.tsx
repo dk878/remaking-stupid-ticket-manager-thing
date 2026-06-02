@@ -16,17 +16,13 @@ export type Ticket = {
 }
 
 function BarcodeIcon() {
+  // alternating bar and gap widths in px
+  const segments = [3, 1, 1, 2, 2, 1, 1, 1, 3, 2, 1, 1, 2, 1, 1, 2, 3]
   return (
-    <span className="relative inline-flex h-8 w-8 items-center justify-center" aria-hidden="true">
-      <span className="absolute left-0 top-0 h-2 w-2 border-l-2 border-t-2 border-white" />
-      <span className="absolute right-0 top-0 h-2 w-2 border-r-2 border-t-2 border-white" />
-      <span className="absolute bottom-0 left-0 h-2 w-2 border-b-2 border-l-2 border-white" />
-      <span className="absolute bottom-0 right-0 h-2 w-2 border-b-2 border-r-2 border-white" />
-      <span className="flex h-5 items-end gap-[2px]">
-        {[8, 16, 11, 18, 14, 9].map((height, index) => (
-          <span key={index} className="w-[2px] bg-white" style={{ height }} />
-        ))}
-      </span>
+    <span className="inline-flex h-5 items-stretch" aria-hidden="true">
+      {segments.map((w, i) => (
+        <span key={i} className={i % 2 === 0 ? 'bg-white' : ''} style={{ width: w }} />
+      ))}
     </span>
   )
 }
@@ -51,11 +47,11 @@ type TicketCardProps = {
 
 export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
   return (
-    <article className="w-[84vw] max-w-[430px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_16px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
-      <section className="bg-[#c3211d] px-8 pb-8 pt-7 text-white">
-        <div className="relative text-center text-lg font-light">
+    <article className="relative w-[84vw] max-w-[430px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_16px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
+      <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
+      <section className="bg-[#c3211d] px-8 pb-7 pt-6 text-white">
+        <div className="text-center text-lg font-light">
           {ticket.type}
-          <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
         </div>
         <div className="mt-8 grid grid-cols-3 gap-6 text-center">
           <div>
@@ -86,14 +82,14 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </div>
       </section>
 
-      <section className="px-8 pb-16 pt-24 text-center">
-        <Button asChild className="h-14 w-full rounded-none bg-[#c3211d] text-lg font-semibold text-white hover:bg-[#aa1d19]">
+      <section className="px-6 pb-10 pt-16 text-center sm:px-8 sm:pb-16 sm:pt-24">
+        <Button asChild className="h-14 w-full rounded-none bg-[#c3211d] text-lg font-normal text-white hover:bg-[#aa1d19]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <BarcodeIcon />
             <span className="ml-4">View Ticket</span>
           </Link>
         </Button>
-        <button className="mt-8 text-lg font-bold text-[#c3211d]">Ticket Details</button>
+        <button className="mt-5 text-lg font-normal text-[#c3211d]">Ticket Details</button>
       </section>
     </article>
   )
