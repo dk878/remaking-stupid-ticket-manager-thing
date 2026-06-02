@@ -92,13 +92,13 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
       </section>
 
       <section className="px-6 pb-10 pt-[80px] text-center sm:px-8 sm:pb-16 sm:pt-24">
-        <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-lg font-normal text-white hover:bg-[#a80000]">
+        <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-[13.5px] font-normal text-white hover:bg-[#a80000]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <BarcodeIcon />
             <span className="ml-4">View Ticket</span>
           </Link>
         </Button>
-        <button className="mt-5 text-lg font-normal text-[#cb0101]">Ticket Details</button>
+        <button className="mt-[19px] text-[14px] font-normal text-[#cb0101]">Ticket Details</button>
       </section>
     </article>
   )
