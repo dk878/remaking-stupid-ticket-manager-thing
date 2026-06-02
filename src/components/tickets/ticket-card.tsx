@@ -50,13 +50,13 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
     <article className="relative h-[498px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_3px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
       <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
       <section className="h-[115px] bg-[#cb0101] px-8 pb-[27px] pt-[15px] text-white">
-        <div className="mx-auto h-[12px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none" style={{ fontFamily: 'Arial, sans-serif' }}>
+        <div className="mx-auto h-[14px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none" style={{ fontFamily: 'Arial, sans-serif' }}>
           {ticket.type}
         </div>
         <div className="mt-[21px] grid grid-cols-3 gap-6 text-center">
           <div className="-translate-x-[5px]">
-            <p className="-translate-x-[7.2px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Section</p>
-            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.section}</p>
+            <p className="mt-[2px] -translate-x-[7px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Section</p>
+            <p className="mt-[-1px] -translate-x-[6.5px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.section}</p>
           </div>
           <div className="mt-[2px]">
             <p className="text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Row</p>
@@ -64,7 +64,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
           </div>
           <div className="translate-x-[4px]">
             <p className="translate-x-[7px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Seat</p>
-            <p className="mt-[-4px] translate-x-[8.5px] text-[20px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.seat}</p>
+            <p className="mt-[-2px] translate-x-[6.5px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.seat}</p>
           </div>
         </div>
       </section>
@@ -76,14 +76,23 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
           <TeamArt />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/10" />
-        <div className="absolute inset-x-5 bottom-5 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          <h2 className="text-2xl font-light leading-tight">{ticket.event}</h2>
-          <p className="mt-3 text-lg font-light">{ticket.date} • {ticket.venue}</p>
+        <div className="absolute inset-x-[10px] top-[96px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+          <h2 className="text-[19px] font-light leading-tight">{ticket.event}</h2>
+        </div>
+        <div className="absolute inset-x-5 bottom-[7px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+          <p className="text-[13.5px] font-light">
+            {ticket.date.split(' • ').map((part, i, arr) => (
+              <span key={i} className={i === arr.length - 1 ? 'translate-x-[4px] inline-block' : '-translate-x-[5px] inline-block'}>
+                {part}{i < arr.length - 1 ? <span style={{ padding: '0 5px' }}>•</span> : ''}
+              </span>
+            ))}
+            <span style={{ padding: '0 5px' }}>•</span>{ticket.venue}
+          </p>
         </div>
       </section>
 
-      <section className="px-6 pb-10 pt-[74px] text-center sm:px-8 sm:pb-16 sm:pt-24">
-        <Button asChild className="h-[40px] w-[280px] rounded-none bg-[#cb0101] text-lg font-normal text-white hover:bg-[#a80000]">
+      <section className="px-6 pb-10 pt-[80px] text-center sm:px-8 sm:pb-16 sm:pt-24">
+        <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-lg font-normal text-white hover:bg-[#a80000]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <BarcodeIcon />
             <span className="ml-4">View Ticket</span>
