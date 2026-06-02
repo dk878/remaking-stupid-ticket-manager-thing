@@ -1,4 +1,7 @@
 {
+  "installCommand": "bun install",
+  "buildCommand": "mkdir -p dist && bun run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/(.*)",
