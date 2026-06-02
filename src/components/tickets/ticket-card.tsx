@@ -100,7 +100,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </Button>
         <button className="mt-[19px] text-[14px] font-normal text-[#cb0101]">Ticket Details</button>
       </section>
-      <div className="mt-[2px] h-[1px] w-full bg-[#cb0101]" />
+      <div className="mt-[3px] h-[1px] w-full bg-[#cb0101]" />
     </article>
   )
 }
