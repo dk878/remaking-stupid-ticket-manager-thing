@@ -41,13 +41,13 @@ export function CreateTicketDialog({ onCreate }: { onCreate: (ticket: Omit<Ticke
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="h-12 rounded-none bg-[#c3211d] px-6 text-base font-bold text-white hover:bg-[#aa1d19]">
+        <Button className="h-12 rounded-none bg-[#cb0101] px-6 text-base font-bold text-white hover:bg-[#a80000]">
           <span className="mr-2 text-2xl leading-none">+</span>
           Create Ticket
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[420px] overflow-hidden rounded-[18px] border-none bg-[#111] p-0 text-white shadow-2xl sm:rounded-[18px] [&>button]:text-white">
-        <DialogHeader className="bg-[#c3211d] px-6 py-5 text-left text-white">
+        <DialogHeader className="bg-[#cb0101] px-6 py-5 text-left text-white">
           <DialogTitle className="text-2xl font-bold text-white">Create Ticket</DialogTitle>
           <DialogDescription className="text-white/80">
             Add a mobile ticket to this rebuilt manager. No Zynapse backend is used.
@@ -98,7 +98,7 @@ export function CreateTicketDialog({ onCreate }: { onCreate: (ticket: Omit<Ticke
             <Button type="button" variant="outline" className="rounded-none border-white/10 bg-[#111] text-white hover:bg-zinc-900 hover:text-white" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button type="submit" className="rounded-none bg-[#c3211d] text-white hover:bg-[#aa1d19]">
+            <Button type="submit" className="rounded-none bg-[#cb0101] text-white hover:bg-[#a80000]">
               Save Ticket
             </Button>
           </DialogFooter>

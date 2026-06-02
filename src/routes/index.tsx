@@ -115,9 +115,9 @@ export function HomePage() {
   }
 
   return (
-    <main className="min-h-svh bg-white text-zinc-950">
-      <header className="bg-[#c3211d] text-white">
-        <div className="mx-auto flex min-h-[160px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[212px] sm:pt-8">
+    <main className="mx-auto min-h-[852px] w-full max-w-[393px] bg-white text-zinc-950">
+      <header className="bg-[#cb0101] text-white">
+        <div className="mx-auto flex min-h-[155px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[155px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
             <button aria-label="Close" className="relative h-11 w-11">
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
@@ -179,7 +179,7 @@ export function HomePage() {
 
         <div className="mt-5 flex flex-col items-center gap-3 px-6 pb-10 sm:mt-8 sm:px-8 sm:pb-12">
           <CreateTicketDialog onCreate={createTicket} />
-          {error && <p className="text-center text-sm font-medium text-[#c3211d]">{error}</p>}
+          {error && <p className="text-center text-sm font-medium text-[#cb0101]">{error}</p>}
           {activeTicket && <p className="text-center text-sm text-zinc-500">Selected: {activeTicket.section}, Row {activeTicket.row}, Seat {activeTicket.seat}</p>}
         </div>
       </section>

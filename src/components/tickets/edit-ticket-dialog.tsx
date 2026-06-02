@@ -59,7 +59,7 @@ export function EditTicketDialog({ ticket, onUpdate, onDelete }: EditTicketDialo
       <DialogTrigger asChild>
         <button
           type="button"
-          className="absolute right-3 top-3 z-10 grid h-6 w-6 place-items-center rounded-full border-2 border-solid !border-white bg-transparent text-sm font-normal leading-none !text-white shadow-none hover:bg-white/10"
+          className="absolute right-3 top-3 z-10 grid h-[20px] w-[20px] place-items-center rounded-full border-2 border-solid !border-white bg-transparent text-sm font-normal leading-none !text-white shadow-none hover:bg-white/10"
           aria-label="Edit ticket information"
           onClick={stopCardClick}
         >
@@ -70,7 +70,7 @@ export function EditTicketDialog({ ticket, onUpdate, onDelete }: EditTicketDialo
         className="max-w-[420px] overflow-hidden rounded-[18px] border-none bg-[#111] p-0 text-white shadow-2xl sm:rounded-[18px] [&>button]:text-white"
         onClick={stopCardClick}
       >
-        <DialogHeader className="bg-[#c3211d] px-6 py-5 text-left text-white">
+        <DialogHeader className="bg-[#cb0101] px-6 py-5 text-left text-white">
           <DialogTitle className="text-2xl font-bold text-white">Edit Ticket</DialogTitle>
           <DialogDescription className="text-white/80">
             Update this ticket or remove it from the database.
@@ -125,7 +125,7 @@ export function EditTicketDialog({ ticket, onUpdate, onDelete }: EditTicketDialo
               <Button type="button" variant="outline" className="rounded-none border-white/10 bg-[#111] text-white hover:bg-zinc-900 hover:text-white" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button type="submit" className="rounded-none bg-[#c3211d] text-white hover:bg-[#aa1d19]">
+              <Button type="submit" className="rounded-none bg-[#cb0101] text-white hover:bg-[#a80000]">
                 Save Ticket
               </Button>
             </div>

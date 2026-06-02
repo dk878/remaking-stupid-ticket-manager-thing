@@ -47,10 +47,10 @@ type TicketCardProps = {
 
 export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
   return (
-    <article className="relative w-[84vw] max-w-[430px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_16px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
+    <article className="relative h-[498px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_16px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
       <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
-      <section className="bg-[#c3211d] px-8 pb-7 pt-6 text-white">
-        <div className="text-center text-lg font-light">
+      <section className="h-[150px] bg-[#cb0101] px-8 pb-7 pt-[15px] text-white">
+        <div className="mx-auto h-[13px] w-[34px] overflow-hidden text-center text-[11px] font-light leading-none">
           {ticket.type}
         </div>
         <div className="mt-8 grid grid-cols-3 gap-6 text-center">
@@ -69,7 +69,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </div>
       </section>
 
-      <section className="relative h-56 overflow-hidden bg-black text-white">
+      <section className="relative h-[174px] w-[330px] overflow-hidden bg-black text-white">
         {ticket.imageUrl ? (
           <img src={ticket.imageUrl} alt="Ticket event" className="absolute inset-0 h-full w-full object-cover" />
         ) : (
@@ -83,13 +83,13 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
       </section>
 
       <section className="px-6 pb-10 pt-16 text-center sm:px-8 sm:pb-16 sm:pt-24">
-        <Button asChild className="h-14 w-full rounded-none bg-[#c3211d] text-lg font-normal text-white hover:bg-[#aa1d19]">
+        <Button asChild className="h-[40px] w-[280px] rounded-none bg-[#cb0101] text-lg font-normal text-white hover:bg-[#a80000]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <BarcodeIcon />
             <span className="ml-4">View Ticket</span>
           </Link>
         </Button>
-        <button className="mt-5 text-lg font-normal text-[#c3211d]">Ticket Details</button>
+        <button className="mt-5 text-lg font-normal text-[#cb0101]">Ticket Details</button>
       </section>
     </article>
   )
