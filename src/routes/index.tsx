@@ -117,23 +117,27 @@ export function HomePage() {
   return (
     <main className="mx-auto min-h-[844px] w-full max-w-[390px] bg-white text-zinc-950">
       <header className="bg-[#cb0101] text-white">
-        <div className="mx-auto flex min-h-[105px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[105px] sm:pt-8">
+        <div className="mx-auto flex min-h-[106px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[106px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
             <button aria-label="Close" className="relative h-11 w-11">
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
-            <h1 className="whitespace-nowrap text-center text-2xl font-bold sm:text-3xl">My Tickets</h1>
+            <h1 className="whitespace-nowrap text-center font-normal mt-[80px]" style={{ fontFamily: 'Arial, sans-serif', fontSize: '21px' }}>My Tickets</h1>
             <div />
           </div>
           <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
-            <button className="pb-4 pt-8 font-extrabold sm:pb-6 sm:pt-14">MY TICKETS</button>
-            <button className="pb-4 pt-8 text-white/55 sm:pb-6 sm:pt-14">EXTRAS</button>
+            <button className="pb-[21px] pt-8 font-extrabold sm:pb-[29px] sm:pt-14">MY TICKETS</button>
+            <button className="pb-[21px] pt-8 text-white/55 sm:pb-[29px] sm:pt-14">EXTRAS</button>
           </nav>
         </div>
       </header>
 
-      <section className="mx-auto max-w-[620px] overflow-hidden pt-4">
+      <div className="flex justify-end">
+        <div style={{ width: 195, height: 3, backgroundColor: '#cb0101' }} />
+      </div>
+
+      <section className="mx-auto max-w-[620px] overflow-hidden pt-[1px]">
         <div
           ref={carouselRef}
           onScroll={handleCarouselScroll}
@@ -180,7 +184,6 @@ export function HomePage() {
         <div className="mt-5 flex flex-col items-center gap-3 px-6 pb-10 sm:mt-8 sm:px-8 sm:pb-12">
           <CreateTicketDialog onCreate={createTicket} />
           {error && <p className="text-center text-sm font-medium text-[#cb0101]">{error}</p>}
-          {activeTicket && <p className="text-center text-sm text-zinc-500">Selected: {activeTicket.section}, Row {activeTicket.row}, Seat {activeTicket.seat}</p>}
         </div>
       </section>
     </main>
