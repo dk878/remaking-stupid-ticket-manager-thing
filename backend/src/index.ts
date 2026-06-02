@@ -87,6 +87,6 @@ app.delete('/api/tickets/:id', async (c) => {
 })
 
 export default {
-  port: 4000,
+  port: Number(process.env.PORT) || 4000,
   fetch: app.fetch,
 }
