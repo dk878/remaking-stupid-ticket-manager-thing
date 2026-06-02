@@ -15,17 +15,6 @@ export type Ticket = {
   imageUrl: string
 }
 
-function BarcodeIcon() {
-  // alternating bar and gap widths in px
-  const segments = [3, 1, 1, 2, 2, 1, 1, 1, 3, 2, 1, 1, 2, 1, 1, 2, 3]
-  return (
-    <span className="inline-flex h-5 items-stretch" aria-hidden="true">
-      {segments.map((w, i) => (
-        <span key={i} className={i % 2 === 0 ? 'bg-white' : ''} style={{ width: w }} />
-      ))}
-    </span>
-  )
-}
 
 function TeamArt() {
   return (
@@ -100,7 +89,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </Button>
         <button className="mt-[19px] text-[14px] font-normal text-[#cb0101]">Ticket Details</button>
       </section>
-      <div className="mt-[3px] h-[1px] w-full bg-[#cb0101]" />
+      <div className="mt-[2px] h-[1px] w-full bg-[#cb0101]" />
     </article>
   )
 }

@@ -10,8 +10,7 @@ export function HomePage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const carouselRef = useRef<HTMLDivElement>(null)
-  const activeTicket = tickets[activeIndex] ?? tickets[0]
-  const canAct = tickets.length > 0
+const canAct = tickets.length > 0
 
   useEffect(() => {
     async function loadTickets() {
@@ -117,13 +116,13 @@ export function HomePage() {
   return (
     <main className="mx-auto min-h-[844px] w-full max-w-[390px] bg-white text-zinc-950">
       <header className="bg-[#cb0101] text-white">
-        <div className="mx-auto flex min-h-[6px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[6px] sm:pt-8">
+        <div className="mx-auto flex min-h-[106px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[106px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
             <button aria-label="Close" className="relative h-11 w-11">
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
-              <span className="absolute left-1/2 top-[calc(50%+10px)] h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
+              <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
-            <div />
+            <h1 className="whitespace-nowrap text-center font-normal mt-[40px] translate-y-5" style={{ fontFamily: 'Arial, sans-serif', fontSize: '21px' }}>My Tickets</h1>
             <div />
           </div>
           <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
@@ -136,8 +135,6 @@ export function HomePage() {
       <div className="flex justify-end">
         <div style={{ width: 195, height: 3, backgroundColor: '#cb0101' }} />
       </div>
-
-      <h1 className="whitespace-nowrap text-center font-normal mt-[-60px]" style={{ fontFamily: 'Arial, sans-serif', fontSize: '21px', color: 'white' }}>My Tickets</h1>
 
       <section className="mx-auto max-w-[620px] overflow-hidden pt-[1px]">
         <div
