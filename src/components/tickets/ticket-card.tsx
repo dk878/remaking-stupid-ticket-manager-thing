@@ -47,24 +47,24 @@ type TicketCardProps = {
 
 export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
   return (
-    <article className="relative h-[498px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_16px_rgba(0,0,0,0.25)] ring-1 ring-black/5">
+    <article className="relative h-[498px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_3px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
       <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
-      <section className="h-[150px] bg-[#cb0101] px-8 pb-7 pt-[15px] text-white">
-        <div className="mx-auto h-[13px] w-[34px] overflow-hidden text-center text-[11px] font-light leading-none">
+      <section className="h-[115px] bg-[#cb0101] px-8 pb-[27px] pt-[15px] text-white">
+        <div className="mx-auto h-[12px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none" style={{ fontFamily: 'Arial, sans-serif' }}>
           {ticket.type}
         </div>
-        <div className="mt-8 grid grid-cols-3 gap-6 text-center">
-          <div>
-            <p className="text-lg font-light">Section</p>
-            <p className="mt-1 text-3xl font-bold tracking-tight">{ticket.section}</p>
+        <div className="mt-[21px] grid grid-cols-3 gap-6 text-center">
+          <div className="-translate-x-[5px]">
+            <p className="-translate-x-[7.2px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Section</p>
+            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.section}</p>
           </div>
-          <div>
-            <p className="text-lg font-light">Row</p>
-            <p className="mt-1 text-3xl font-bold tracking-tight">{ticket.row}</p>
+          <div className="mt-[2px]">
+            <p className="text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Row</p>
+            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.row}</p>
           </div>
-          <div>
-            <p className="text-lg font-light">Seat</p>
-            <p className="mt-1 text-3xl font-bold tracking-tight">{ticket.seat}</p>
+          <div className="translate-x-[4px]">
+            <p className="translate-x-[7px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Seat</p>
+            <p className="mt-[-4px] translate-x-[8.5px] text-[20px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.seat}</p>
           </div>
         </div>
       </section>
@@ -82,7 +82,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </div>
       </section>
 
-      <section className="px-6 pb-10 pt-16 text-center sm:px-8 sm:pb-16 sm:pt-24">
+      <section className="px-6 pb-10 pt-[74px] text-center sm:px-8 sm:pb-16 sm:pt-24">
         <Button asChild className="h-[40px] w-[280px] rounded-none bg-[#cb0101] text-lg font-normal text-white hover:bg-[#a80000]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <BarcodeIcon />

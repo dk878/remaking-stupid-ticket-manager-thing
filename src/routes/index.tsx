@@ -115,7 +115,7 @@ export function HomePage() {
   }
 
   return (
-    <main className="mx-auto min-h-[2556px] w-full max-w-[1179px] bg-white text-zinc-950">
+    <main className="mx-auto min-h-[844px] w-full max-w-[390px] bg-white text-zinc-950">
       <header className="bg-[#cb0101] text-white">
         <div className="mx-auto flex min-h-[155px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[155px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
@@ -127,8 +127,8 @@ export function HomePage() {
             <div />
           </div>
           <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
-            <button className="pb-4 pt-8 font-extrabold sm:pb-6 sm:pt-14">My Tickets</button>
-            <button className="pb-4 pt-8 text-white/55 sm:pb-6 sm:pt-14">Extras</button>
+            <button className="pb-4 pt-8 font-extrabold sm:pb-6 sm:pt-14">MY TICKETS</button>
+            <button className="pb-4 pt-8 text-white/55 sm:pb-6 sm:pt-14">EXTRAS</button>
           </nav>
         </div>
       </header>
