@@ -15,17 +15,6 @@ export type Ticket = {
   imageUrl: string
 }
 
-function BarcodeIcon() {
-  // alternating bar and gap widths in px
-  const segments = [3, 1, 1, 2, 2, 1, 1, 1, 3, 2, 1, 1, 2, 1, 1, 2, 3]
-  return (
-    <span className="inline-flex h-5 items-stretch" aria-hidden="true">
-      {segments.map((w, i) => (
-        <span key={i} className={i % 2 === 0 ? 'bg-white' : ''} style={{ width: w }} />
-      ))}
-    </span>
-  )
-}
 
 function TeamArt() {
   return (

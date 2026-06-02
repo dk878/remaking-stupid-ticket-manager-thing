@@ -10,8 +10,7 @@ export function HomePage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const carouselRef = useRef<HTMLDivElement>(null)
-  const activeTicket = tickets[activeIndex] ?? tickets[0]
-  const canAct = tickets.length > 0
+const canAct = tickets.length > 0
 
   useEffect(() => {
     async function loadTickets() {
@@ -119,7 +118,7 @@ export function HomePage() {
       <header className="bg-[#cb0101] text-white">
         <div className="mx-auto flex min-h-[106px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[106px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
-            <button aria-label="Close" className="relative h-11 w-11">
+            <button aria-label="Close" className="relative h-11 w-11 translate-y-[30px]">
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
               <span className="absolute left-1/2 top-1/2 h-[3px] w-10 -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
