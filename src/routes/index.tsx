@@ -115,7 +115,7 @@ export function HomePage() {
   }
 
   return (
-    <main className="mx-auto min-h-[852px] w-full max-w-[393px] bg-white text-zinc-950">
+    <main className="mx-auto min-h-[2556px] w-full max-w-[1179px] bg-white text-zinc-950">
       <header className="bg-[#cb0101] text-white">
         <div className="mx-auto flex min-h-[155px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[155px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
