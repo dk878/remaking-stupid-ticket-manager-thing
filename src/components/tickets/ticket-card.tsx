@@ -32,41 +32,50 @@ type TicketCardProps = {
   ticket: Ticket
   onUpdate: (id: number, ticket: Omit<Ticket, 'id'>) => void | Promise<void>
   onDelete: (id: number) => void | Promise<void>
+  detailsPath?: string
+  notesTranslateY?: number
+  viewTicketTranslateY?: number
+  ticketDetailsTranslateY?: number
+  sectionRowSeatTranslateY?: number
+  labelsTranslateY?: number
+  valuesFontSize?: number
+  longLabels?: boolean
+  bottomLineTranslateY?: number
 }
 
-export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
+export function TicketCard({ ticket, onUpdate, onDelete, detailsPath = '/ticket-details', notesTranslateY = 0, viewTicketTranslateY = 0, ticketDetailsTranslateY = 0, sectionRowSeatTranslateY = 0, labelsTranslateY = 0, valuesFontSize = 19.6, longLabels = false, bottomLineTranslateY = 0 }: TicketCardProps) {
   return (
-    <article className="relative h-[493px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_3px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
+    <article className="relative h-[555px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_3px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
       <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
-      <section className="h-[115px] bg-[#cb0101] px-8 pb-[27px] pt-[15px] text-white">
-        <div className="mx-auto h-[14px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none">
+      <section className="h-[130px] bg-[#cb0101] px-8 pb-[27px] pt-[15px] text-white">
+        <div className="mx-auto h-[19px] w-[55px] overflow-hidden text-center text-[13.5px] font-light leading-none">
           {ticket.type}
         </div>
-        <div className="mt-[21px] grid grid-cols-3 gap-6 text-center">
+        <div className="mt-[21px] grid grid-cols-3 gap-6 text-center" style={sectionRowSeatTranslateY !== 0 ? { transform: `translateY(${sectionRowSeatTranslateY}px)` } : undefined}>
           <div className="-translate-x-[5px]">
-            <p className="-translate-x-[7px] text-[13.5px] font-light">Section</p>
-            <p className="mt-[-4px] -translate-x-[6.5px] text-[19.6px] font-bold tracking-tight">{ticket.section}</p>
+            <p className="-translate-x-[7px] text-[13.5px] font-light" style={{ transform: `translateX(-7px) translateY(${3 + labelsTranslateY}px)` }}>{longLabels ? 'Section' : 'SEC'}</p>
+            <p className="mt-[-4px] -translate-x-[6.5px] font-bold tracking-tight" style={{ fontSize: `${valuesFontSize}px` }}>{ticket.section}</p>
           </div>
           <div>
-            <p className="text-[13.5px] font-light">Row</p>
-            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight">{ticket.row}</p>
+            <p className="text-[13.5px] font-light" style={{ transform: `translateY(${3 + labelsTranslateY}px)` }}>{longLabels ? 'Row' : 'ROW'}</p>
+            <p className="mt-[-4px] font-bold tracking-tight" style={{ fontSize: `${valuesFontSize}px` }}>{ticket.row}</p>
           </div>
           <div className="translate-x-[4px]">
-            <p className="translate-x-[7px] text-[13.5px] font-light">Seat</p>
-            <p className="mt-[-4px] translate-x-[6.5px] text-[19.6px] font-bold tracking-tight">{ticket.seat}</p>
+            <p className="text-[13.5px] font-light" style={{ transform: `translateX(7px) translateY(${3 + labelsTranslateY}px)` }}>{longLabels ? 'Seat' : 'SEAT'}</p>
+            <p className="mt-[-4px] translate-x-[6.5px] font-bold tracking-tight" style={{ fontSize: `${valuesFontSize}px` }}>{ticket.seat}</p>
           </div>
         </div>
       </section>
 
-      <section className="relative h-[174px] w-[330px] overflow-hidden bg-black text-white">
+      <section className="relative h-[194px] w-[330px] overflow-hidden bg-black text-white">
         {ticket.imageUrl ? (
           <img src={ticket.imageUrl} alt="Ticket event" className="absolute inset-0 h-full w-full object-cover" />
         ) : (
           <TeamArt />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/10" />
-        <div className="absolute inset-x-[10px] top-[96px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          <h2 className="text-[19px] font-light leading-tight">{ ticket.event}</h2>
+        <div className="absolute inset-x-[10px] top-[116px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+          <h2 className="text-[18px] font-light leading-tight">{ ticket.event}</h2>
         </div>
         <div className="absolute inset-x-1 bottom-[10px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           <p className="text-[13.5px] font-light">
@@ -80,16 +89,19 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         </div>
       </section>
 
-      <section className="px-6 pb-10 pt-[80px] text-center sm:px-8 sm:pb-16 sm:pt-24">
-        <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-[13.5px] font-normal text-white hover:bg-[#a80000]">
+      <section className="px-6 pb-10 pt-[95px] text-center sm:px-8 sm:pb-16 sm:pt-24">
+        <div className="mx-auto mb-3 h-[19px] w-[280px] overflow-hidden text-center text-[13.5px] font-light leading-none text-zinc-950" style={notesTranslateY !== 0 ? { transform: `translateY(${notesTranslateY}px)` } : undefined}>
+          {ticket.notes}
+        </div>
+        <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-[13.5px] font-normal text-white hover:bg-[#a80000]" style={viewTicketTranslateY !== 0 ? { transform: `translateY(${viewTicketTranslateY}px)` } : undefined}>
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <img src="https://cdn.discordapp.com/attachments/1108078293900599358/1511439503447822547/gfbdncmnvb.jpg?ex=6a20753a&is=6a1f23ba&hm=9d473c4464c1171026ab0f66be854401eceadb14e3e37cace6ddb7d852e9dfc3&animated=true" alt="barcode" className="h-5 w-auto translate-x-[3px]" />
             <span className="ml-2 font-semibold">View Ticket</span>
           </Link>
         </Button>
-        <button className="mt-[19px] text-[14px] font-semibold text-[#cb0101]">Ticket Details</button>
+        <Link to={detailsPath as string} onClick={(event) => event.stopPropagation()} className="mt-[16px] block text-[14px] font-semibold text-[#cb0101]" style={ticketDetailsTranslateY !== 0 ? { transform: `translateY(${ticketDetailsTranslateY}px)` } : undefined}>Ticket Details</Link>
       </section>
-      <div className="mt-[4px] h-[1px] w-full bg-[#cb0101]" />
+      <div className="mt-[31px] h-[1px] w-full bg-[#cb0101]" style={bottomLineTranslateY !== 0 ? { transform: `translateY(${bottomLineTranslateY}px)` } : undefined} />
     </article>
   )
 }

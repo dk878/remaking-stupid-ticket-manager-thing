@@ -6,13 +6,16 @@ import { Root } from './routes/__root'
 import { HomePage } from './routes/index'
 import { ShowcasePage } from './routes/showcase'
 import { TicketDetailPage } from './routes/ticket-detail'
+import { TicketDetailsViewPage } from './routes/ticket-details-view'
 
 const rootRoute = createRootRoute({ component: Root })
 const indexRoute = createRoute({ getParentRoute: () => rootRoute, path: '/', component: HomePage })
 const showcaseRoute = createRoute({ getParentRoute: () => rootRoute, path: '/showcase', component: ShowcasePage })
 const ticketDetailRoute = createRoute({ getParentRoute: () => rootRoute, path: '/tickets/$ticketId', component: TicketDetailPage })
 
-const routeTree = rootRoute.addChildren([indexRoute, showcaseRoute, ticketDetailRoute])
+const ticketDetailsViewRoute = createRoute({ getParentRoute: () => rootRoute, path: '/ticket-details', component: TicketDetailsViewPage })
+
+const routeTree = rootRoute.addChildren([indexRoute, showcaseRoute, ticketDetailRoute, ticketDetailsViewRoute])
 const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {
