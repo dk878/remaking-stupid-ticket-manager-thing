@@ -160,22 +160,22 @@ const canAct = tickets.length > 0
           ))}
         </div>
 
-        <div className="mt-2 flex justify-center gap-4">
+        <div className="mt-2 flex justify-center gap-[15px]">
           {tickets.slice(0, 4).map((ticket, index) => (
             <button
               key={ticket.id}
               aria-label={`View ticket ${index + 1}`}
               onClick={() => scrollToTicket(index)}
-              className={`h-3 w-3 rounded-full ${activeIndex === index ? 'bg-slate-600' : 'bg-slate-300'}`}
+              className={`h-2 w-2 rounded-full ${activeIndex === index ? 'bg-slate-600' : 'bg-slate-300'}`}
             />
           ))}
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-4 px-6 sm:mt-8 sm:gap-5 sm:px-8 -translate-y-[8px]">
-          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px' }}>
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px' }}>
             Transfer
           </Button>
-          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px' }}>
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px' }}>
             Sell
           </Button>
         </div>
