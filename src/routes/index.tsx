@@ -115,7 +115,7 @@ const canAct = tickets.length > 0
   }
 
   return (
-    <main className="mx-auto min-h-[844px] w-full max-w-[390px] bg-white text-zinc-950">
+    <main className="mx-auto min-h-[844px] w-full max-w-[390px] bg-white pb-[300px] text-zinc-950">
       <header className="bg-[#cb0101] text-white">
         <div className="mx-auto flex min-h-[106px] max-w-[520px] flex-col px-6 pb-0 pt-6 sm:min-h-[106px] sm:pt-8">
           <div className="mt-8 grid grid-cols-3 items-center sm:mt-12">
