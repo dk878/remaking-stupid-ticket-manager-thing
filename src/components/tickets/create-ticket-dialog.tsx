@@ -7,7 +7,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -16,8 +15,10 @@ import type { Ticket } from './ticket-card'
 
 const fieldClass = 'border-white/10 bg-[#111] text-white placeholder:text-zinc-500 focus-visible:ring-white/30'
 
-export function CreateTicketDialog({ onCreate }: { onCreate: (ticket: Omit<Ticket, 'id'>) => void }) {
-  const [open, setOpen] = useState(false)
+export function CreateTicketDialog({ onCreate, open: openProp, onOpenChange }: { onCreate: (ticket: Omit<Ticket, 'id'>) => void; open?: boolean; onOpenChange?: (open: boolean) => void }) {
+  const [openInternal, setOpenInternal] = useState(false)
+  const open = openProp !== undefined ? openProp : openInternal
+  const setOpen = onOpenChange !== undefined ? onOpenChange : setOpenInternal
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -40,12 +41,6 @@ export function CreateTicketDialog({ onCreate }: { onCreate: (ticket: Omit<Ticke
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button className="h-12 rounded-none bg-[#cb0101] px-6 text-base font-bold text-white hover:bg-[#a80000]">
-          <span className="mr-2 text-2xl leading-none">+</span>
-          Create Ticket
-        </Button>
-      </DialogTrigger>
       <DialogContent className="max-w-[420px] overflow-hidden rounded-[18px] border-none bg-[#111] p-0 text-white shadow-2xl sm:rounded-[18px] [&>button]:text-white">
         <DialogHeader className="bg-[#cb0101] px-6 py-5 text-left text-white">
           <DialogTitle className="text-2xl font-bold text-white">Create Ticket</DialogTitle>
@@ -56,7 +51,7 @@ export function CreateTicketDialog({ onCreate }: { onCreate: (ticket: Omit<Ticke
         <form onSubmit={handleSubmit} className="space-y-4 px-6 py-5">
           <div className="space-y-2">
             <Label htmlFor="event">Event name</Label>
-            <Input id="event" name="event" defaultValue="2025-26 Stanley Cup Final: Home Game 2" className={fieldClass} />
+            <Input id="event" name="event" defaultValue="2025-26 Stanley Cup Final: Home Game 2" className={fieldClass} style={{ width: 'calc(100% - 5px)' }} />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">

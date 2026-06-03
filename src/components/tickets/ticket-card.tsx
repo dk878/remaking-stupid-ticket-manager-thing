@@ -39,21 +39,21 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
     <article className="relative h-[493px] w-[330px] shrink-0 overflow-hidden rounded-[18px] bg-white shadow-[0_3px_3px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
       <EditTicketDialog ticket={ticket} onUpdate={onUpdate} onDelete={onDelete} />
       <section className="h-[115px] bg-[#cb0101] px-8 pb-[27px] pt-[15px] text-white">
-        <div className="mx-auto h-[14px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none" style={{ fontFamily: 'Arial, sans-serif' }}>
+        <div className="mx-auto h-[14px] w-[35px] overflow-hidden text-center text-[13.5px] font-light leading-none">
           {ticket.type}
         </div>
         <div className="mt-[21px] grid grid-cols-3 gap-6 text-center">
           <div className="-translate-x-[5px]">
-            <p className="-translate-x-[7px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Section</p>
-            <p className="mt-[-4px] -translate-x-[6.5px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.section}</p>
+            <p className="-translate-x-[7px] text-[13.5px] font-light">Section</p>
+            <p className="mt-[-4px] -translate-x-[6.5px] text-[19.6px] font-bold tracking-tight">{ticket.section}</p>
           </div>
           <div>
-            <p className="text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Row</p>
-            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.row}</p>
+            <p className="text-[13.5px] font-light">Row</p>
+            <p className="mt-[-4px] text-[19.6px] font-bold tracking-tight">{ticket.row}</p>
           </div>
           <div className="translate-x-[4px]">
-            <p className="translate-x-[7px] text-[13.5px] font-light" style={{ fontFamily: 'Arial, sans-serif' }}>Seat</p>
-            <p className="mt-[-4px] translate-x-[6.5px] text-[19.6px] font-bold tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>{ticket.seat}</p>
+            <p className="translate-x-[7px] text-[13.5px] font-light">Seat</p>
+            <p className="mt-[-4px] translate-x-[6.5px] text-[19.6px] font-bold tracking-tight">{ticket.seat}</p>
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/10" />
         <div className="absolute inset-x-[10px] top-[96px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          <h2 className="text-[19px] font-light leading-tight">{ticket.event}</h2>
+          <h2 className="text-[19px] font-light leading-tight">{ ticket.event}</h2>
         </div>
         <div className="absolute inset-x-1 bottom-[10px] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           <p className="text-[13.5px] font-light">
@@ -84,10 +84,10 @@ export function TicketCard({ ticket, onUpdate, onDelete }: TicketCardProps) {
         <Button asChild className="h-[39px] w-[280px] rounded-none bg-[#cb0101] text-[13.5px] font-normal text-white hover:bg-[#a80000]">
           <Link to={`/tickets/${ticket.id}` as string} onClick={(event) => event.stopPropagation()}>
             <img src="https://cdn.discordapp.com/attachments/1108078293900599358/1511439503447822547/gfbdncmnvb.jpg?ex=6a20753a&is=6a1f23ba&hm=9d473c4464c1171026ab0f66be854401eceadb14e3e37cace6ddb7d852e9dfc3&animated=true" alt="barcode" className="h-5 w-auto translate-x-[3px]" />
-            <span className="ml-2">View Ticket</span>
+            <span className="ml-2 font-semibold">View Ticket</span>
           </Link>
         </Button>
-        <button className="mt-[19px] text-[14px] font-normal text-[#cb0101]">Ticket Details</button>
+        <button className="mt-[19px] text-[14px] font-semibold text-[#cb0101]">Ticket Details</button>
       </section>
       <div className="mt-[4px] h-[1px] w-full bg-[#cb0101]" />
     </article>

@@ -79,7 +79,7 @@ export function EditTicketDialog({ ticket, onUpdate, onDelete }: EditTicketDialo
         <form onSubmit={handleSubmit} className="space-y-4 px-6 py-5">
           <div className="space-y-2">
             <Label htmlFor={`event-${ticket.id}`}>Event name</Label>
-            <Input id={`event-${ticket.id}`} name="event" defaultValue={ticket.event} className={fieldClass} />
+            <Input id={`event-${ticket.id}`} name="event" defaultValue={ticket.event} className={fieldClass} style={{ width: 'calc(100% - 5px)' }} />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">

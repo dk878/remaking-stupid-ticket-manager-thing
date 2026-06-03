@@ -9,6 +9,7 @@ export function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [createOpen, setCreateOpen] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
 const canAct = tickets.length > 0
 
@@ -122,11 +123,11 @@ const canAct = tickets.length > 0
               <span className="absolute left-1/2 top-1/2 h-[3px] w-[25px] -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-full bg-white" />
               <span className="absolute left-1/2 top-1/2 h-[3px] w-[25px] -translate-x-1/2 -translate-y-1/2 -rotate-45 rounded-full bg-white" />
             </button>
-            <h1 className="whitespace-nowrap text-center font-normal mt-[40px] translate-y-[15px]" style={{ fontFamily: 'Arial, sans-serif', fontSize: '19px' }}>My Tickets</h1>
+            <h1 className="whitespace-nowrap text-center font-medium mt-[40px] translate-y-[15px]" style={{ fontSize: '19px' }}>My Tickets</h1>
             <div />
           </div>
           <nav className="mt-auto grid grid-cols-2 text-center text-base uppercase tracking-wide sm:text-lg">
-            <button className="pb-[21px] pt-8 font-extrabold sm:pb-[29px] sm:pt-14" style={{ fontSize: '12.5px', transform: 'translate(-13.5px, 7px)' }}>MY TICKETS</button>
+            <button onClick={() => setCreateOpen(true)} className="pb-[21px] pt-8 font-extrabold sm:pb-[29px] sm:pt-14" style={{ fontSize: '12.5px', transform: 'translate(-13.5px, 7px)' }}>MY TICKETS</button>
             <button className="pb-[21px] pt-8 text-white/55 sm:pb-[29px] sm:pt-14" style={{ fontSize: '12.5px', transform: 'translate(16.5px, 10px)' }}>EXTRAS</button>
           </nav>
         </div>
@@ -172,16 +173,16 @@ const canAct = tickets.length > 0
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-4 px-6 sm:mt-8 sm:gap-5 sm:px-8 -translate-y-[8px]">
-          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px' }}>
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px', fontWeight: 500 }}>
             Transfer
           </Button>
-          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px' }}>
+          <Button disabled={!canAct} className="rounded-md text-base text-slate-400 disabled:opacity-100 sm:text-lg" style={{ backgroundColor: 'rgba(225, 229, 232)', color: '#b0b2b6', height: '40px', fontSize: '13px', fontWeight: 500 }}>
             Sell
           </Button>
         </div>
 
         <div className="mt-5 flex flex-col items-center gap-3 px-6 pb-10 sm:mt-8 sm:px-8 sm:pb-12">
-          <CreateTicketDialog onCreate={createTicket} />
+          <CreateTicketDialog onCreate={createTicket} open={createOpen} onOpenChange={setCreateOpen} />
           {error && <p className="text-center text-sm font-medium text-[#cb0101]">{error}</p>}
         </div>
       </section>
