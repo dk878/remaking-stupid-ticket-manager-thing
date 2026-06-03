@@ -156,7 +156,7 @@ const canAct = tickets.length > 0
               className="snap-center text-left"
               onClick={() => scrollToTicket(index)}
             >
-              <TicketCard ticket={ticket} onUpdate={updateTicket} onDelete={deleteTicket} longLabels />
+              <TicketCard ticket={ticket} onUpdate={updateTicket} onDelete={deleteTicket} longLabels sectionLabelTranslateX={0} labelsTranslateY={-10} valuesTranslateY={-8} seatValueTranslateX={1.5} sectionValueTranslateX={-2.5} eventNameTranslateY={-20} viewTicketOverlayUrl="https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif" redHeaderHeight={115} imageHeight={173} cardHeight={490} bottomLineTranslateY={-72} notesTranslateY={-46} viewTicketTranslateY={-46} ticketDetailsTranslateY={-46} />
             </div>
           ))}
         </div>
