@@ -53,7 +53,7 @@ type TicketCardProps = {
   viewTicketOverlayUrl?: string
 }
 
-export function TicketCard({ ticket, onUpdate, onDelete, detailsPath = '/ticket-details', notesTranslateY = 0, viewTicketTranslateY = 0, ticketDetailsTranslateY = 0, sectionRowSeatTranslateY = 0, labelsTranslateY = 0, valuesFontSize = 19.6, longLabels = false, sectionLabelTranslateX = -7, valuesTranslateY = 0, seatValueTranslateX = 6.5, sectionValueTranslateX = -6.5, eventNameTranslateY = 0, bottomLineTranslateY = 0, redHeaderHeight = 130, imageHeight = 194, cardHeight = 555, viewTicketOverlayUrl }: TicketCardProps) {
+export function TicketCard({ ticket, onUpdate, onDelete, detailsPath = '/ticket-details', notesTranslateY = 0, viewTicketTranslateY = 0, ticketDetailsTranslateY = 0, sectionRowSeatTranslateY = 0, labelsTranslateY = 0, valuesFontSize = 19.6, longLabels = false, sectionLabelTranslateX = -7, valuesTranslateY = 0, seatValueTranslateX = 6.5, sectionValueTranslateX = -6.5, eventNameTranslateY = 0, bottomLineTranslateY = 0, redHeaderHeight = 130, imageHeight = 194, cardHeight = 555, viewTicketOverlayUrl = 'https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif' }: TicketCardProps) {
   const [overlayOpen, setOverlayOpen] = useState(false)
 
   return (
@@ -136,7 +136,7 @@ export function TicketCard({ ticket, onUpdate, onDelete, detailsPath = '/ticket-
           <img
             src={viewTicketOverlayUrl}
             alt="Ticket"
-            className="max-h-[36vh] max-w-[36vw] object-contain"
+            className="max-h-[17vh] max-w-[17vw] object-contain"
             style={{ filter: 'grayscale(1) brightness(1.4)' }}
             onClick={(e) => e.stopPropagation()}
           />
